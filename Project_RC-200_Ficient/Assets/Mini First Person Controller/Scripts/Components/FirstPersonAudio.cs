@@ -9,6 +9,7 @@ public class FirstPersonAudio : MonoBehaviour
     [Header("Step")]
     public AudioSource stepAudio;
     public AudioSource runningAudio;
+    
     [Tooltip("Minimum velocity for moving audio to play")]
     /// <summary> "Minimum velocity for moving audio to play" </summary>
     public float velocityThreshold = .01f;

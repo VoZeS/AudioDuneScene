@@ -9,6 +9,7 @@ public class FootstepSound : MonoBehaviour
     public AudioClip[] footstepsOnWood;
     public AudioClip[] footstepsOnMarble;
     public AudioClip[] footstepsOnMushroom;
+    public AudioClip[] footstepsOnMetal;
 
     public string material;
 
@@ -45,6 +46,11 @@ public class FootstepSound : MonoBehaviour
                     audioSource.PlayOneShot(footstepsOnWood[Random.Range(0, footstepsOnWood.Length)]);
                 break;
 
+            case "Metal":
+                if (footstepsOnMetal.Length > 0)
+                    audioSource.PlayOneShot(footstepsOnMetal[Random.Range(0, footstepsOnMetal.Length)]);
+                break;
+
             default:
                 break;
         }
@@ -52,20 +58,6 @@ public class FootstepSound : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        switch(collision.gameObject.tag)
-        {
-            case "Untagged":
-            case "Cave":
-                material = collision.gameObject.tag;
-                break;
-            case "Sand":
-                material = collision.gameObject.tag;
-                break;
-            case "Mushroom":
-                material = collision.gameObject.tag;
-                break;
-            default:
-                break;
-        }
+        material = collision.gameObject.tag;
     }
 }
